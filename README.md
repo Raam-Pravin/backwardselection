@@ -12,47 +12,51 @@ p-values less than 0.05. A summary of the final model using the base summary() f
 along with a list of the variables which were removed since they were found to be statistically in-significant at a 
 p-value of 0.05.      
 
+## Installation
+```{r, eval = FALSE}
+devtools::install_github("Raam-Pravin/backward_selection", build_vignettes = T)
+```
+
 ## Example Usage:
-
 ### Input:
-#>data("mtcars")
-#>library(backward_selection)
-#> #example:
+```{r, eval = FALSE}
 
-#> data("mtcars")
+data("mtcars")
+library(backward_selection)
 
-#> y_var <- "mpg"
+#example:
+data("mtcars")
+y_var <- "mpg"
 
-#> #All columns except target mpg
-
-#> x_vars <- colnames(mtcars)[2:11]
-
-#> final_model <- backward_selection(mtcars, y_var, x_vars)
+#All columns except target mpg
+x_vars <- colnames(mtcars)[2:11]  
+final_model <- backward_selection(mtcars, y_var, x_vars)
+```
 
 ### Output:
-#>[1] "Final model:"
-#> Call:
-#> lm(formula = formula, data = data)
+```{r, eval = FALSE}
+[1] "Final model:"
 
-#> Residuals:
- 
-#>    Min      1Q  Median      3Q     Max
- 
-#> -3.4811 -1.5555 -0.7257  1.4110  4.6610
- 
+Call:
+lm(formula = formula, data = data)
 
-#> Coefficients:
-#>            Estimate Std. Error t value Pr(>|t|) 
-#> (Intercept)   9.6178     6.9596   1.382 0.177915
-#> wt           -3.9165     0.7112  -5.507 6.95e-06 ***
-#> qsec          1.2259     0.2887   4.247 0.000216 ***
-#> am            2.9358     1.4109   2.081 0.046716 *
-#> ---
-#> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
- 
-#> Residual standard error: 2.459 on 28 degrees of freedom
-#>Multiple R-squared:  0.8497,	Adjusted R-squared:  0.8336
-#>F-statistic: 52.75 on 3 and 28 DF,  p-value: 1.21e-11
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.4811 -1.5555 -0.7257  1.4110  4.6610 
 
-#> [1] "Removed variables:"
-#>[1] "cyl"  "vs"   "carb" "gear" "drat" "disp" "hp"  
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   9.6178     6.9596   1.382 0.177915    
+wt           -3.9165     0.7112  -5.507 6.95e-06 ***
+qsec          1.2259     0.2887   4.247 0.000216 ***
+am            2.9358     1.4109   2.081 0.046716 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.459 on 28 degrees of freedom
+Multiple R-squared:  0.8497,	Adjusted R-squared:  0.8336 
+F-statistic: 52.75 on 3 and 28 DF,  p-value: 1.21e-11
+
+[1] "Removed variables:"
+[1] "cyl"  "vs"   "carb" "gear" "drat" "disp" "hp"  
+```
