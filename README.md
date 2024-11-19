@@ -1,5 +1,5 @@
 # backward_selection
-Overview:
+##Overview:
 backward_selection is a package for backwards selection, providing a function which performs backwards selection 
 
 given:
