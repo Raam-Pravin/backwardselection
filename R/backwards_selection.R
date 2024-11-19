@@ -64,3 +64,4 @@ backward_selection <- function(data, y_var, x_vars, significance_level = 0.05) {
   # Return the final model
   return(model)
 }
+
