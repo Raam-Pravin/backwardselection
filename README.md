@@ -5,7 +5,7 @@ backward_selection is a package for backwards selection, providing a function wh
 given:
 (data frame, outcome variable, vector of predictor variables)
  
-backwards_selection(): Intializes a full model with all predicitor variables and usign the base lm() function 
+backwards_selection(): Intializes a full model with all predicitor variables and using the base lm() function 
 one-by-one drops predictors whose t-test's p-value is not less than 0.05, making sure to never drop the intercept. 
 Backwards selection ends when all remaining variables in the linear model are all statistically significant with 
 p-values less than 0.05. A summary of the final model using the base summary() function is returned by the function 
