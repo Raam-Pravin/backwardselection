@@ -1,0 +1,59 @@
+---
+title: "backwards_vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{backwards_vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(backwards.package)
+```
+
+```{r}
+#using backwards.package package:
+data("mtcars")
+y_var <- "mpg"
+#All columns except target mpg
+x_vars <- colnames(mtcars)[2:11]  
+final_model <- backward_selection(mtcars, y_var, x_vars)
+package_lm_summary <- summary(final_model)
+```
+```{r}
+#base R:
+backward_model <- lm(mpg ~ ., data = mtcars)
+backward_model <- step(backward_model, direction = "backward")
+base_summary <- summary(backward_model)
+base_summary
+```
+
+```{r}
+#Testing whether both lm models's coefficents equal
+all.equal(final_model$coefficients,backward_model$coefficients)
+```
+
+```{r}
+#Testing whether both lm model's adjusted R^2 equal
+all.equal(package_lm_summary$adj.r.squared, base_summary$adj.r.squared)
+```
+
+```{r}
+#Testing efficiency of base program
+system.time(step(backward_model, direction = "backward"))
+```
+
+```{r}
+#Testing efficiency of new package
+system.time(backward_selection(mtcars, y_var, x_vars))
+
+
+```
+
