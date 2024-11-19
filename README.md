@@ -1,6 +1,6 @@
-# backwardsselection625
+# backward_selection
 Overview:
-backwardsselection625 is a package for backwards selection, providing a function which performs backwards selection 
+backward_selection is a package for backwards selection, providing a function which performs backwards selection 
 
 given:
 (data frame, outcome variable, vector of predictor variables)
@@ -17,7 +17,7 @@ p-value of 0.05.
 ### Input:
 data("mtcars")
 >
-library(backwardsselection625)
+library(backward_selection)
 > #example:
 >
 > data("mtcars")
