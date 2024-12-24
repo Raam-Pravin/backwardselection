@@ -31,6 +31,7 @@ y_var <- "mpg"
 #All columns except target mpg
 x_vars <- colnames(mtcars)[2:11]  
 final_model <- backward_selection(mtcars, y_var, x_vars)
+final_model
 ```
 
 ### Output:
