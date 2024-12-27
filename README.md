@@ -1,6 +1,6 @@
 # backward_selection
 ## Overview:
-backward_selection is a package for backwards selection, providing a function which performs backwards selection 
+backward_selection is a R package for backwards selection, providing a implementation of backwards selection from scratch
 
 given:
 (data frame, outcome variable, vector of predictor variables)
